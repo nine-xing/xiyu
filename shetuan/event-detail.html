@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件详情 · 汐遇史记</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/chronicle.css" />
+  </head>
+  <body class="mc-detail-body">
+    <header class="mc-detail-top">
+      <a href="xiyu.html" id="detail-back-link">← 返回汐遇史记</a>
+      <a href="login.html" id="detail-edit-link" style="display: none">登录后编辑</a>
+    </header>
+    <div class="mc-detail-layout" id="detail-root">
+      <p class="mc-empty-main" id="detail-missing" hidden>未找到该事件。</p>
+      <div id="detail-content" hidden>
+        <article class="mc-detail-article">
+          <h1 class="mc-detail-title" id="detail-title"></h1>
+          <p class="mc-detail-meta" id="detail-meta"></p>
+          <div class="mc-detail-body-text" id="detail-text"></div>
+        </article>
+        <div class="mc-detail-gallery" id="detail-gallery"></div>
+        <div
+          id="detail-comments-sentinel"
+          class="mc-detail-comments-sentinel"
+          aria-hidden="true"
+        ></div>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      id="detail-comments-fab"
+      class="mc-detail-comments-fab"
+      hidden
+    >
+      查看评论
+    </button>
+
+    <div id="comments-modal" class="mc-comments-modal" hidden>
+      <div class="mc-comments-modal__backdrop" data-comments-close></div>
+      <div
+        class="mc-comments-modal__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="comments-modal-title"
+      >
+        <button
+          type="button"
+          class="mc-comments-modal__close"
+          aria-label="关闭"
+          data-comments-close
+        >
+          ×
+        </button>
+        <h2 id="comments-modal-title" class="mc-comments-modal__title">评论</h2>
+        <div class="mc-comments-modal__scroll">
+          <div id="comments-list" class="mc-comments-modal__list"></div>
+          <form id="comments-form" class="mc-comments-modal__form">
+            <label class="mc-comments-modal__label">
+              <span>昵称（可选）</span>
+              <input
+                type="text"
+                name="nick"
+                class="mc-comments-modal__input"
+                maxlength="24"
+                placeholder="访客"
+                autocomplete="nickname"
+              />
+            </label>
+            <label class="mc-comments-modal__label">
+              <span>内容</span>
+              <textarea
+                name="text"
+                class="mc-comments-modal__textarea"
+                rows="4"
+                maxlength="500"
+                required
+                placeholder="最多 500 字"
+              ></textarea>
+            </label>
+            <p id="comments-form-error" class="mc-comments-modal__error" role="alert"></p>
+            <button type="submit" class="mc-comments-modal__submit">发送</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/event-detail.js"></script>
+  </body>
+</html>

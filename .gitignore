@@ -1,0 +1,8 @@
+node_modules/
+backend/config.php
+backend/gen_password_hash.php
+backend/uploads/
+tupianziyuan/
+DESIGN.md
+backend/nginx-comments-snippet.txt
+backend/nginx-uploads-snippet.txt

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>汐遇史记</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/chronicle.css" />
+  </head>
+  <body class="mc-body">
+    <header class="mc-top">
+      <div class="mc-brand">汐遇史记</div>
+      <div class="mc-top-actions">
+        <a href="editor.html" id="nav-editor" style="display: none">编辑</a>
+        <a href="#" id="nav-login">登录</a>
+      </div>
+    </header>
+
+    <div
+      id="login-modal"
+      class="mc-login-overlay"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="login-modal-title"
+    >
+      <div class="mc-login-dialog">
+        <button type="button" class="mc-login-close" id="login-modal-close" aria-label="关闭">
+          ×
+        </button>
+        <h2 class="mc-login-brand" id="login-modal-title">XIYU SHIIJI</h2>
+        <p class="mc-login-lead">
+          使用管理员密码登录；内容保存在服务器，浏览器仅作缓存。
+        </p>
+        <form id="form-login-modal" autocomplete="on">
+          <div class="mc-login-field">
+            <label class="mc-login-label" for="login-modal-password">管理员密钥</label>
+            <input
+              id="login-modal-password"
+              name="password"
+              type="password"
+              class="mc-login-input"
+              placeholder="请输入管理员密钥"
+              required
+              minlength="1"
+            />
+          </div>
+          <label class="mc-login-checkline" for="toggle-login-modal-password">
+            <input id="toggle-login-modal-password" type="checkbox" />
+            <span>显示密码</span>
+          </label>
+          <div
+            id="login-modal-turnstile"
+            class="mc-login-turnstile"
+            style="display: none"
+          ></div>
+          <p id="login-modal-error" class="mc-login-error" role="alert"></p>
+          <button type="submit" class="mc-login-submit">登录</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="mc-app">
+      <aside class="mc-sidebar">
+        <div class="mc-year-rail" id="year-rail"></div>
+        <button
+          type="button"
+          class="mc-add-year"
+          id="btn-add-year-sidebar"
+          title="添加年份"
+          hidden
+        >
+          +
+        </button>
+      </aside>
+
+      <main class="mc-main" id="mc-main">
+        <div id="mc-main-empty" class="mc-empty-stage" hidden>
+          <div class="mc-empty-inner">
+            <p class="mc-empty-text">
+              暂无年份记录。登录后点击左侧下方 <strong>+</strong> 添加年份，或进入「编辑」管理。
+            </p>
+          </div>
+        </div>
+        <div id="mc-main-content" class="mc-main-columns">
+          <div class="mc-info" aria-label="年份详情">
+            <div class="bg-logo">✦</div>
+            <div class="faction-info">
+              <div class="faction-en" id="yearEn">YEAR</div>
+              <div class="faction-zh" id="yearZh">请选择年份</div>
+              <p class="mc-synopsis" id="yearSynopsis"></p>
+              <div class="runes" aria-hidden="true">⎎⍙⍝⍋⍝⍙⍎</div>
+            </div>
+          </div>
+          <div class="mc-carousel-wrap" aria-label="本年事件">
+            <div class="character-carousel" id="event-carousel"></div>
+            <div class="controls">
+              <button type="button" class="btn" id="carousel-prev" aria-label="向左滚动">
+                ＜
+              </button>
+              <button type="button" class="btn" id="carousel-next" aria-label="向右滚动">
+                ＞
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+      async
+      defer
+    ></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/chronicle.js"></script>
+  </body>
+</html>
