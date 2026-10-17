@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "antd": "^6.3.5"
+    "antd": "^6.3.5",
+    "jszip": "^3.10.1",
+    "mammoth": "^1.12.0",
+    "puppeteer": "^25.5.0"
   }
 }
