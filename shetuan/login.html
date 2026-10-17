@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录 · 汐遇史记</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/chronicle.css" />
+  </head>
+  <body class="mc-login-page">
+    <div class="mc-login-page-inner">
+      <a class="mc-login-back-link" href="xiyu.html">← 返回主界面</a>
+      <div class="mc-login-dialog mc-login-dialog--page">
+        <h1 class="mc-login-brand" style="font-size: 22px">XIYU SHIIJI</h1>
+        <p class="mc-login-lead">
+          使用管理员密码登录；内容保存在服务器，浏览器仅作缓存。
+        </p>
+
+        <div id="block-logged" class="mc-login-logged" style="display: none">
+          <p class="mc-login-lead mc-login-ok">你已登录。</p>
+          <div class="mc-login-actions">
+            <button type="button" class="mc-login-submit" id="btn-go-editor">进入编辑</button>
+            <button type="button" class="mc-login-btn-ghost" id="btn-logout">登出</button>
+          </div>
+        </div>
+
+        <form id="form-login" class="auth-form" autocomplete="on" style="display: block">
+          <div class="mc-login-field">
+            <label class="mc-login-label" for="login-password">管理员密钥</label>
+            <input
+              id="login-password"
+              name="password"
+              type="password"
+              class="mc-login-input"
+              placeholder="请输入管理员密钥"
+              required
+              minlength="1"
+            />
+          </div>
+          <label class="mc-login-checkline" for="toggle-login-password">
+            <input id="toggle-login-password" type="checkbox" />
+            <span>显示密码</span>
+          </label>
+          <div id="login-turnstile" class="mc-login-turnstile" style="display: none"></div>
+          <p id="login-error" class="mc-login-error" role="alert"></p>
+          <button type="submit" class="mc-login-submit">登录</button>
+        </form>
+      </div>
+    </div>
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+      async
+      defer
+    ></script>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /api/
+  RewriteRule ^login-challenge$ login_challenge.php [L]
+  RewriteRule ^login$ login.php [L]
+  RewriteRule ^logout$ logout.php [L]
+  RewriteRule ^content$ content.php [L]
+  RewriteRule ^upload$ upload.php [L]
+  RewriteRule ^comments$ comments.php [L]
+  RewriteRule ^comments-delete$ comments_delete.php [L]
+</IfModule>

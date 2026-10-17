@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>编辑 · 汐遇史记</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="page-editor">
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header site-header--editor">
+      <div class="brand">
+        <span class="brand__mark">◈</span>
+        <span class="brand__name">编辑 · 汐遇史记</span>
+      </div>
+      <div class="header-actions">
+        <a href="xiyu.html" class="header-actions__link">主界面</a>
+        <a href="login.html" class="header-actions__link">账号</a>
+      </div>
+    </header>
+
+    <main class="editor-main">
+      <form id="form-editor" class="editor-form">
+        <section class="panel">
+          <h2 class="panel__title">按年编辑</h2>
+          <p class="panel__hint">
+            选择年份后编辑该年下的全部事件（幕）。保存会写入服务器并同步缓存；主界面会自动刷新。
+          </p>
+          <div class="panel__toolbar">
+            <label class="field field--inline">
+              <span class="field__label">年份</span>
+              <select id="editor-year" class="field__input field__select"></select>
+            </label>
+            <button type="button" class="btn btn--ghost" id="btn-add-year">＋ 添加年份</button>
+            <button type="button" class="btn btn--ghost btn--danger" id="btn-del-year">删除当前年</button>
+          </div>
+          <label class="field">
+            <span class="field__label">本年简介（显示在该年标题下）</span>
+            <textarea id="year-synopsis" class="field__input" rows="2" placeholder="可选"></textarea>
+          </label>
+        </section>
+
+        <section class="panel">
+          <div class="panel__head">
+            <h2 class="panel__title">幕（事件条目）</h2>
+            <button type="button" class="btn btn--ghost" id="btn-add-beat">＋ 添加一条</button>
+          </div>
+          <div id="beats-editor" class="beats-editor"></div>
+          <div class="beats-editor__footer">
+            <button type="button" class="btn btn--ghost" id="btn-add-beat-bottom">＋ 添加一条</button>
+          </div>
+        </section>
+
+        <div class="editor-footer">
+          <p id="upload-progress" class="upload-progress" hidden aria-live="polite"></p>
+          <p id="save-status" class="save-status" aria-live="polite"></p>
+          <button type="submit" class="btn btn--primary btn--lg">保存全部</button>
+        </div>
+      </form>
+    </main>
+
+    <button
+      type="button"
+      class="editor-backtop"
+      id="editor-backtop"
+      aria-label="返回顶部"
+      title="返回顶部"
+      aria-hidden="true"
+    >
+      <svg class="editor-backtop__svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M12 6.2 5.5 12.7l1.4 1.4 5.1-5.1 5.1 5.1 1.4-1.4L12 6.2z"
+        />
+      </svg>
+    </button>
+
+    <button
+      type="button"
+      class="editor-backtop"
+      id="editor-backbottom"
+      aria-label="返回底部"
+      title="返回底部"
+      aria-hidden="true"
+    >
+      <svg class="editor-backtop__svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="m12 17.8 6.5-6.5-1.4-1.4-5.1 5.1-5.1-5.1-1.4 1.4 6.5 6.5z"
+        />
+      </svg>
+    </button>
+
+    <script src="js/config.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/editor.js"></script>
+  </body>
+</html>
